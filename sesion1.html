@@ -1,0 +1,300 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>1º Sesión Valencia Coders Level I</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section>
+                    <h1>JQUERY</h1>
+                </section>
+                <section>
+                    <section>
+                        <h3>Jquery</h3>
+                        <p>JQuery es una biblioteca multiplataforma de JavaScript, creada inicialmente por John Resig, que permite simplificar la manera de interactuar con los documentos HTML, manipular el árbol DOM, manejar eventos, desarrollar animaciones y agregar interacción con la técnica AJAX a páginas web. Fue presentada el 14 de enero de 2006 en el BarCamp NYC. jQuery es la biblioteca de JavaScript más utilizada.</p>
+                    </section>
+                    <section>
+                        <h3>Jquery</h3>
+                        <a href="http://jquery.com/">Página de Jquery</a>
+                    </section>
+                    <section>
+                        <h3>Uso de Jquery</h3>
+                        <p>Cargando la referencia directamente desde un CDN</p>
+                        <pre><code class="hljs">
+[script type ="text/javascript" src="//cdnjs.cloudflare.como/ajax/libs/jquery/1.8.2/jquery.js"] [/script]
+                        </code></pre>
+                        <p>Descargando en local y cargando el mismo desde la página.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Iniciando Jquery</h3>
+                        <p>Podemos iniciarlo directamente en la página.</p>
+                        <pre><code class="hljs">
+[script type="text/javascript"]
+$(document).ready(function()
+{
+    alert(1);
+});
+[/script]
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Iniciando Jquery</h3>
+                        <p>O bién cargarlo desde una página externa.</p>
+                    </section>
+                    <section>
+                        <h3>Conociendo los Selectores</h3>
+                        <p>Mediante la clase del elemento.</p>
+                        <pre><code class="hljs">
+$(".cotenedor").on("click", function()
+{
+    alert("Contenedor pulsado");
+});
+
+[div class="contenedor"]Contenedor de clase[/div]
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Conociendo los Selectores</h3>
+                        <p>Mediante el id del elemento.</p>
+                        <pre><code class="hljs">
+$("#cotenedorId").on("click", function()
+{
+    alert("Contenedor pulsado");
+});
+
+[div id="contenedorId"]Contenedor de clase[/div]
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Conociendo los Selectores</h3>
+                        <p>Mediante el tipo de la etiqueta.</p>
+                        <pre><code class="hljs">
+$("div[name=contenedor]").on("click", function()
+{
+    alert("Contenedor pulsado");
+});
+
+[div name="contenedor"]Contenedor de clase[/div]
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>PrevenDefault</h3>
+                        <p>Uno de los elementos que evita la progagación y el funcionamiento normal del componente</p>
+                        <pre><code class="hljs">
+$("a").on("click", function(e)
+{
+    e.preventDefault();
+    alert("Ha pulsado el enlace.");
+});
+
+[a href="www.google.es"]Enlace[/a]
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>El elemento $ (This)</h3>
+                        <p>Hace referencia al clousure donde está situado el mismo.</p>
+                        <pre><code class="hljs">
+$("a").on("click", function(e)
+{
+    e.prevenDefault();
+    alert($(this).text());
+    alert($(this).attr("href");
+});
+
+[a href="www.google.es"]Enlace[/a]
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Eventos</h3>
+                        <p>Evento: Algo que ocurre</p>
+                        <p>Manejador de evento: Una función que contiene el código a ejecutar cuando se produce un evento</p>
+                        <p>Objeto evento: Un objeto que se genera automáticamente concada evento y contiene info y funcionalidades asociadas al evento.</p>
+                    </section>
+                    <section>
+                        <h3>on()</h3>
+                        <h5>Activa manejadores de evento.</h5>
+                        <p>Asociar un comportamiento ante cualquier tipo de evento, por medio de una función manejadora de evento.</p>
+                        <pre><code class="hljs">
+$("selector").on("click", function(){
+    //Aquí se introduce toda la funcionalidad.
+});
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Otro eventos que se pueden añadir.</h3>
+                        <ul>
+                            <li>click()</li>
+                            <li>ready()</li>
+                            <li>keypress()</li>
+                            <li>mouseenter()</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>off()</h3>
+                        <p>Desactiva manejadores de evento.</p>
+                        <ul>
+                            <li>Una función manejadora en concreto.</li>
+                            <li>Todos los manejadores de un tipo de evento.</li>
+                            <li>Todos los manejadores de todos los eventos.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>one()</h3>
+                        <p>Como one, pero el evento asociado sólo se ejectuará una vez.</p>
+                    </section>
+                    <section>
+                        <h3>Objeto event</h3>
+                        <p>El objeto evento de Javascript normalizado y extendido por JQuery</p>
+                        <ul>
+                            <li>Datos del evento.</li>
+                            <li>Funcionalidades asociadas.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>event.type</h3>
+                        <p>Te dice el tipo de evento que se está produciendo.</p>
+                        <p>Para proarlo, aprendemos a definir un manejador en distintos tipos de eventos a la vez.</p>
+                        <pre><code class="hljs">
+$("a").on("Click con ratón", function(e){
+    console.log(e.type);
+});
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>event.preventDefault()</h3>
+                        <p>Previenes el comportamiento por defecto que el navegador realiza predeterminadamente cuando se produce un evento.</p>
+                        <ul>
+                            <li>Se propaga el evento</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>event.stopPropagation()</h3>
+                        <p>Previene la propagación del evento a los elementos superiores en la jerarquía.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Eventos de ratón</h1>
+                    </section>
+                    <section>
+                        <h3>mousemove()</h3>
+                        <p>Tipo de evento que se ejecuta cuando mueves el ratón por encima de un elemento sobre el que has definido el evento.</p>
+                    </section>
+                    <section>
+                        <h3>e.which</h3>
+                        <p>Puedo saber el botón del ratón que se ha pulsado.</p>
+                        <ol>
+                            <li>Botón izq.</li>
+                            <li>Botón medio</li>
+                            <li>Botón der.</li>
+                        </ol>
+                        <blockquote>Ojo: Un evento click sólo se ejecuta con el click del botón izquierdo. Para detectar cualqueir tipo de pulsación puedes usar el evento mousedown.</blockquote>
+                    </section>
+                    <section>
+                        <h1>Eventos del teclado</h1>
+                    </section>
+                    <section>
+                        <h3>keydown keypress keyup</h3>
+                        <p>Eventos de ratón que puedes usar para asignar comportamientos.</p>
+                    </section>
+                    <section>
+                        <h3>e.which</h3>
+                        <p>Podemos acceder al código de la letra que se ha pulsado en un evento de teclado.</p>
+                        <p>Es una información disponible en el objeto evento, al pulsar una tecla se producen los tres eventos en el orden: Keydown, Keypress, Keyup.</p>
+                        <pre><code class="hljs">
+            String.fromCharCode(e.which); //convierte el código de la tecla, Unicode , al caracter asociado.
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>e.shiftkey e.ctrlkey</h3>
+                        <p>Para averiguar si tienes pulsada alguna tecla especial en el momento en el que se produjo el evento.</p>
+                        <pre><code class="hljs">
+if(e.shiftkey){
+    console.log("shift pulsado");
+}
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1> Efectos de Jquery</h1>
+                    </section>
+                    <section>
+                        <h3>Funciones para realizar efectos.</h3>
+                        <ul>
+                            <li>hide()</li>
+                            <li>show()</li>
+                            <li>fadeIn() fadeOut()  fadeTo()</li>
+                            <li>slideUp() slideDown()</li>
+                            <li>toggle() slideToggle()</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Funciones callback</h3>
+                        <p>Las funciones de efectos tienen la posibilidad de especificar una función con código que se ejecutará cuando terminen los efectos.</p>
+                        <pre><code class="hljs">
+          $("#elem").hide(2000, function(){
+                alert("Fin!!!");
+            });
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Animaciones personalizadas</h3>
+                        <p>Una función de animación perfectamente personalizable en el que usar cualquier propiedad numérica de CSS.</p>
+                        <pre><code class="hljs">
+          $("#elem").animate({
+            "font-size":"24pt",
+            width:"200px"
+          }, 2000)
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>PLUGINS EN JQUERY</h3>
+                    </section>
+                </section>
+            </div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
